@@ -34,11 +34,11 @@ r.subreddit('dankruto')
 ```
 Comment search criteria (default = "dattebayo"):
 ```python
-if "sample user comment"
+if "dattebayo" in comment.lower():
 ```
 Bot's comment reply (default = "Dattebayo!"):
 ```python
-comment.reply("Hey, I like your comment!")
+comment.reply("Dattebayo!")
 ```
 
 ### Usage
