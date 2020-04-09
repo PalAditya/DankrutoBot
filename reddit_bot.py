@@ -15,7 +15,7 @@ def bot_login():
 	return r
 
 def run_bot(r, comments_replied_to):
-	#print("Searching last 1,00 comments")
+	#print("Searching last 100 comments")
 	subreddit = r.subreddit("dankruto")
 	while True:
 		for submission in subreddit.new(limit=100):

@@ -1,4 +1,4 @@
-# Reddit Comment Bot
+# Naruto Love Bot
 This allows you to scan for comments in a subreddit and reply to them with your own unique flavour
   - Pick a subreddit to scan
   - Designate a specific type of comment to search for
@@ -38,8 +38,10 @@ if "dattebayo" in comment.lower():
 ```
 Bot's comment reply (default = "Dattebayo!"):
 ```python
-comment.reply("Dattebayo!")
+comment.reply("Dattebayo!")heroku logs --tail
 ```
+
+Additionally, It also comments on posts with high upvotes with special ninjutsus like **Chou Senpo Odama Rasengan**
 
 ### Usage
 
@@ -48,3 +50,5 @@ Run your bot:
 ```
 python reddit_bot.py
 ```
+
+**Note**: This bot doesn't have 100% availability as I am using my local computer right now. I have tried deploying it to Heroku but that hasn't always worked out. Will be modifying it soon enough
