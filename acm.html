@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+    </head>
+    <body>
+        <h1>ACM Stats</h1>
+        <div>
+            <par>Filter options</par></br>
+            <!--<input type="checkbox" id="combined" name="combined" value="combined">
+            <label for="combined"> Combined</label>
+            <input type="checkbox" id="split" name="split" value="split">
+            <label for="split"> Separate external trades</label>
+           -->
+            <input type="radio" value="combined" name="count" id="combined">
+            <label for="combined"> Combined</label>
+            <input type="radio" value="split" name="count" id="split">
+            <label for="split"> Separate external trades</label>
+        </div>
+        <canvas id="chart" width="400" height="150"></canvas>
+<script>
+
+
+var ctx = document.getElementById('chart').getContext('2d');
+
+const combinedTrades = [12, 19, 3, 5, 2, 3];
+const splitTradeInternal = [2, 10, 3, 0, 1, 2];
+const splitTradeExternal = [10, 9, 0, 5, 1, 1];
+
+const backgroundColor = [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ];
+
+const borderColor = [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ];
+
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Trades',
+            data: combinedTrades,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+var combined = document.getElementById("combined");
+combined.onclick = function() { 
+    chart.data.datasets = [{
+        label: '# of Trades',
+            data: combinedTrades,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: 1
+    }];
+    chart.update('none');
+};
+
+var split = document.getElementById("split");
+split.onclick = function() { 
+    chart.data.datasets = [{
+        label: '# of Internal Trades',
+            data: splitTradeInternal,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: 1
+    }, {
+        label: '# of External Trades',
+            data: splitTradeExternal,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: 1
+    }];
+    chart.update('none');
+};
+
+</script>
+    </body>
+</html>
